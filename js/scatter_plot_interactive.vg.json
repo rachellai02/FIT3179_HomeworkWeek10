@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
+  "width": 800,
   "height": 500,
   "title": "Share of obese population vs daily supply of calories in 2014",
   "data": {
@@ -31,11 +31,25 @@
         ],
         "name": "Continent Selection: "
       }
+    },
+    {
+      "name": "Population_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 100000000,
+        "step": 1000000,
+        "name": "Minimum Population: "
+      }
     }
   ],
   "transform": [
     {
       "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+    },
+    {
+      "filter": "datum.Population >= Population_Above"
     }
   ],
   "encoding": {
@@ -67,15 +81,16 @@
           "legend": {"format": ".1s"}
         },
         "color": {
-        "field": "Continent",
-        "type": "nominal"
+          "field": "Continent",
+          "type": "nominal"
         },
         "opacity": {"value": 0.6},
         "tooltip": [
           {"field": "Entity", "type": "nominal"},
           {"field": "Daily caloric supply", "type": "quantitative"},
           {"field": "Obese", "type": "quantitative"},
-          {"field": "Population", "type": "quantitative"}
+          {"field": "Population", "type": "quantitative"},
+          {"field": "Continent", "type": "nominal"}
         ]
       }
     },
@@ -93,7 +108,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Entity'] == 'China' || datum['Entity'] == 'India' || datum['Entity'] == 'United States'",
+            "test": "datum['Entity'] == 'China' || datum['Entity'] == 'Malaysia' || datum['Entity'] == 'Australia' || datum['Entity'] == 'New Zealand' || datum['Entity'] == 'Italy' || datum['Entity'] == 'Yemen' || datum['Entity'] == 'United States' || datum['Entity'] == 'United Kingdom' || datum['Entity'] == 'Sri Lanka' || datum['Entity'] == 'Indonesia' || datum['Entity'] == 'Brazil' || datum['Entity'] == 'South Africa' || datum['Entity'] == 'World'",
             "value": 1
           },
           "value": 0
@@ -102,7 +117,8 @@
           {"field": "Entity", "type": "nominal"},
           {"field": "Daily caloric supply", "type": "quantitative"},
           {"field": "Obese", "type": "quantitative"},
-          {"field": "Population", "type": "quantitative"}
+          {"field": "Population", "type": "quantitative"},
+          {"field": "Continent", "type": "nominal"}
         ]
       }
     }

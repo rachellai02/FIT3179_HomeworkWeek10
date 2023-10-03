@@ -1,37 +1,60 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  
-  <!-- CSS file -->
-  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-
-
+    <title>Multiple Visualisations | An Example</title>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <!-- other imports ... -->
 </head>
+
 <body>
-  
-  <div id="choropleth_map"></div>
 
-  <script type="text/javascript">
+    <div class="page">
+        <!-- existing content ... -->
 
-    var spec1 = "js/choropleth_map.vg.json";
-    vegaEmbed('#choropleth_map', spec1).then(function(result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-  </script>
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div class="description description-left">
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div id="choropleth_map" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
 
-  <div id="scatter_plot"></div>
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-2-3">
+                <div id="scatter_plot" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3">
+                <div class="description description-right">
+                </div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
 
-  <script type="text/javascript">
+        <!-- other content ... -->
 
-    var spec2 = "js/scatter_plot_interactive.vg.json";
-    vegaEmbed('#scatter_plot', spec2).then(function(result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-  </script>
+    </div>
+    <!-- end page -->
 
+    <script type="text/javascript">
+        var spec1 = "js/choropleth_map.vg.json";
+        vegaEmbed('#choropleth_map', spec1).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec2 = "js/scatter_plot_interactive.vg.json";
+        vegaEmbed('#scatter_plot', spec2).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
 </body>
+
 </html>

@@ -1,23 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
-  "height": 600,
+  "width": 500,
+  "height": 500,
   "title": "Share of obese population vs daily supply of calories in 2014",
   "data": {
     "url": "https://raw.githubusercontent.com/rachellai02/FIT3179_HomeworkWeek10/master/data/(continent)share-of-adult-men-overweight-or-obese-vs-daily-supply-of-calories-2014.csv"
   },
   "params": [
-    {
-      "name": "Population_Above",
-      "value": 0,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 100000000,
-        "step": 1000000,
-        "name": "Minimum Population: "
-      }
-    },
     {
       "name": "Continent_selection",
       "bind": {
@@ -45,9 +34,6 @@
     }
   ],
   "transform": [
-    {"filter": "datum.Daily caloric supply > 0"},
-    {"filter": "datum.Obese > 0"},
-    {"filter": "datum.Population > Population_Above"},
     {
       "filter": "Continent_selection == null || datum.Continent == Continent_selection"
     }
@@ -56,12 +42,14 @@
     "x": {
       "field": "Daily caloric supply",
       "type": "quantitative",
-      "title": "Daily Caloric Supply"
+      "title": "Daily Caloric Supply",
+      "axis": {"tickCount": 7}
     },
     "y": {
       "field": "Obese",
       "type": "quantitative",
-      "title": "Obese (%)"
+      "title": "Obese (%)",
+      "axis": {"tickCount": 6}
     }
   },
   "layer": [
@@ -73,39 +61,21 @@
           "type": "quantitative",
           "scale": {
             "type": "threshold",
-            "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
-            "range": [10, 50, 150, 200, 300, 400]
+            "domain": [1000000, 10000000, 50000000, 100000000, 500000000, 1000000000, 5000000000],
+            "range": [10, 50, 100, 150, 200, 300, 400, 500]
           },
           "legend": {"format": ".1s"}
         },
         "color": {
-          "field": "Continent",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "North America",
-              "South America",
-              "Europe",
-              "Africa",
-              "Asia",
-              "Oceania"
-            ],
-            "range": [
-              "#e41a1c",
-              "#984ea3",
-              "#ff7f00",
-              "#a6cee3",
-              "#377eb8",
-              "#a65628"
-            ]
-          }
+        "field": "Continent",
+        "type": "nominal"
         },
         "opacity": {"value": 0.6},
         "tooltip": [
-          {"field": "Entity", "type": "nominal", "title": "Country"},
-          {"field": "Daily caloric supply", "type": "quantitative", "title": "Calories"},
-          {"field": "Obese", "type": "quantitative", "title": "Obese (%)"},
-          {"field": "Population", "type": "quantitative", "format": ",", "title": "Population"}
+          {"field": "Entity", "type": "nominal"},
+          {"field": "Daily caloric supply", "type": "quantitative"},
+          {"field": "Obese", "type": "quantitative"},
+          {"field": "Population", "type": "quantitative"}
         ]
       }
     },
@@ -123,16 +93,16 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Entity'] == 'China' || datum['Entity'] == 'Singapore' || datum['Entity'] == 'Australia' || datum['Entity'] == 'New Zealand' || datum['Entity'] == 'Italy' || datum['Entity'] == 'Yemen' ||  datum['Entity'] == 'United States'",
+            "test": "datum['Entity'] == 'China' || datum['Entity'] == 'India' || datum['Entity'] == 'United States'",
             "value": 1
           },
           "value": 0
         },
         "tooltip": [
-          {"field": "Entity", "type": "nominal", "title": "Country"},
-          {"field": "Daily caloric supply", "type": "quantitative", "title": "Calories"},
-          {"field": "Obese", "type": "quantitative", "title": "Obese (%)"},
-          {"field": "Population", "type": "quantitative", "format": ",", "title": "Population"}
+          {"field": "Entity", "type": "nominal"},
+          {"field": "Daily caloric supply", "type": "quantitative"},
+          {"field": "Obese", "type": "quantitative"},
+          {"field": "Population", "type": "quantitative"}
         ]
       }
     }

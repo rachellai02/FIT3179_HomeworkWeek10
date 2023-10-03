@@ -85,14 +85,7 @@
             "value": 1
           },
           "value": 0
-        },
-        "tooltip": [
-          {"field": "Entity", "type": "nominal"},
-          {"field": "Daily caloric supply", "type": "quantitative"},
-          {"field": "Obese", "type": "quantitative"},
-          {"field": "Population", "type": "quantitative"},
-          {"field": "Continent", "type": "nominal"}
-        ]
+        }
       }
     },
     {

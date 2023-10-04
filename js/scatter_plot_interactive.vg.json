@@ -80,12 +80,13 @@
         "text": {"field": "Entity", "type": "nominal"},
         "color": {"value": "black"},
         "opacity": {
-          "condition": {
-            "test": "datum['Entity'] == 'China' || datum['Entity'] == 'Malaysia' || datum['Entity'] == 'Australia' || datum['Entity'] == 'New Zealand' || datum['Entity'] == 'Italy' || datum['Entity'] == 'Yemen' || datum['Entity'] == 'United States' || datum['Entity'] == 'United Kingdom' || datum['Entity'] == 'Sri Lanka' || datum['Entity'] == 'Indonesia' || datum['Entity'] == 'Brazil' || datum['Entity'] == 'South Africa' || datum['Entity'] == 'World'",
-            "value": 1
-          },
-          "value": 0
-        }
+        "condition": {
+          "test": "datum['Population'] > 100000000",
+          "value": 1
+        },
+  "value": 0
+}
+
       }
     },
     {

@@ -106,7 +106,7 @@
           "field": "Continent",
           "type": "nominal"
         },
-        "opacity": {"value": 0.6},
+        "opacity": {"value": 0.7},
         "tooltip": [
           {"field": "Entity", "type": "nominal"},
           {"field": "Daily caloric supply", "type": "quantitative"},

@@ -56,13 +56,13 @@
     "x": {
       "field": "Daily caloric supply",
       "type": "quantitative",
-      "title": "Daily Caloric Supply",
+      "title": "Daily Caloric Supply (kcal)",
       "axis": {"tickCount": 7}
     },
     "y": {
       "field": "Obese",
       "type": "quantitative",
-      "title": "Obese (%)",
+      "title": "Share of obese adult men (%)",
       "axis": {"tickCount": 6}
     }
   },
@@ -108,12 +108,33 @@
         },
         "opacity": {"value": 0.7},
         "tooltip": [
-          {"field": "Entity", "type": "nominal"},
-          {"field": "Daily caloric supply", "type": "quantitative"},
-          {"field": "Obese", "type": "quantitative"},
-          {"field": "Population", "type": "quantitative"},
-          {"field": "Continent", "type": "nominal"}
+          {
+            "field": "Entity", 
+            "type": "nominal",
+            "title": "Country"
+          },
+          {
+            "field": "Daily caloric supply", 
+            "type": "quantitative",
+            "title": "Daily Caloric Supply (kcal)", 
+            "format": ",.0f" 
+          },
+          {
+            "field": "Obese", 
+            "type": "quantitative",
+            "title": "Share of obese adult men (%)"
+          },
+          {
+            "field": "Population", 
+            "type": "quantitative",
+            "format": ",.0f" 
+          },
+          {
+            "field": "Continent", 
+            "type": "nominal"
+          }
         ]
+        
       }
     }
   ]

@@ -63,12 +63,12 @@
             "domain": [5, 10, 15, 20, 25, 30, 35]
           },
           "legend": {
-            "title": "Percentage (%)"
+            "title": "Share of obese adults (%)"
           }
         },
         "tooltip": [
           {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-          {"field": "Percentage", "type": "quantitative"}
+          {"field": "Percentage", "type": "quantitative", "title": "Share of obese adults (%)"}
         ]
       }
     }
